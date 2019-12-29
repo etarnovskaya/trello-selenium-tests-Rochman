@@ -3,6 +3,7 @@ package com.elena.trello;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -14,7 +15,7 @@ public class TestBase {
   @BeforeClass
   public void setUp(){
     wd = new ChromeDriver();
-    wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     wd.get("https://trello.com/");
       }
 
@@ -48,7 +49,7 @@ public class TestBase {
     wd.findElement(locator).click();
   }
 
-  protected void fillLoginFormOldAcc(String userName, String password) {
+  public void fillLoginFormOldAcc(String userName, String password) {
     type(By.id("user"), userName);
     type(By.id("password"), password);
   }
@@ -60,6 +61,7 @@ public class TestBase {
   }
 
   public void clickLoginLink(){
+
     click(By.cssSelector("[href='/login']"));
   }
 
@@ -82,6 +84,30 @@ public class TestBase {
 
   public boolean isAvatarPresentOnHeader() {
     return isElementPresent
-            (By.cssSelector("[djata-test-id='header-member-menu-button']"));
+            (By.cssSelector("[data-test-id='header-member-menu-button']"));
+  }
+
+  public void logout() {
+    clickOnAvatar();
+    clickLogoutButton();
+  }
+
+  public void loginAtlassianAcc() throws InterruptedException {
+    clickLoginLink();
+    fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
+    pause(20000);
+
+  }
+
+  public void clickLogoutButton() {
+    click(By.cssSelector("[data-test-id='header-member-menu-logout']"));
+  }
+
+  public void clickOnAvatar() {
+    click(By.cssSelector("[data-test-id='header-member-menu-button']"));
+  }
+
+  public boolean isErrorPresent() {
+    return isElementPresent(By.id("error"));
   }
 }

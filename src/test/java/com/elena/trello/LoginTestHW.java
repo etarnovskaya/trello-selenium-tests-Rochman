@@ -2,20 +2,35 @@ package com.elena.trello;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTestHW extends TestBase {
+@BeforeMethod
+public void ensurePreconditions(){
+  if(isAvatarPresentOnHeader()){
+    logout();
+  }
+}
 
   @Test
   public void testLogInWithAtlassianAcc() throws InterruptedException {
     clickLoginLink();
     fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
-    pause(8000);
+    pause(20000);
+    Assert.assertTrue
+            (isAvatarPresentOnHeader());
+  }
+  @Test
+  public void testLogInWithAtlassianAcc2() throws InterruptedException {
+    clickLoginLink();
+    fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
+    pause(20000);
     Assert.assertTrue
             (isAvatarPresentOnHeader());
   }
 
-  @Test
+  @Test(enabled = false)
   public void negativeTestLogInWithAtlassianAcc() throws InterruptedException {
     clickLoginLink();
     fillLoginFormAtlassianAcc("roch", "");
@@ -25,11 +40,7 @@ public class LoginTestHW extends TestBase {
             (!isAvatarPresentOnHeader());
   }
 
-  public boolean isErrorPresent() {
-    return isElementPresent(By.id("error"));
-  }
-
-  @Test
+  @Test(enabled = false)
   public void testLogInOldAcc() throws InterruptedException {
     clickLoginLink();
     fillLoginFormOldAcc("elena.telran@yahoo.com", "12345.com");
