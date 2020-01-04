@@ -110,4 +110,44 @@ public class TestBase {
   public boolean isErrorPresent() {
     return isElementPresent(By.id("error"));
   }
+
+  public int getBoardsCount() {
+    return wd.findElements(By.cssSelector("ul.boards-page-board-section-list li")).size()-1;
+  }
+
+  public void returnToHomePage() {
+    click(By.name("house"));
+    click(By.name("house"));
+  }
+
+  public void confirmBoardCreation() {
+    click(By.cssSelector("[data-test-id='create-board-submit-button']"));
+
+  }
+
+  public void fillBoardForm(String boardName) {
+    type(By.cssSelector("[data-test-id='create-board-title-input']"), boardName);
+  }
+
+  public void selectCreateBoardFromDropDown() {
+    click(By.xpath("//span[@name='board']/..//p"));
+
+  }
+
+  public void createBoard() throws InterruptedException {
+    clickOnPlusButton();
+    selectCreateBoardFromDropDown();
+    fillBoardForm("qa22"+ System.currentTimeMillis());
+    confirmBoardCreation();
+    pause(15000);
+    returnToHomePage();
+  }
+
+  public void clickOnPlusButton() {
+    click(By.cssSelector("[data-test-id='header-create-menu-button']"));
+  }
+
+  public boolean isThereBoard() {
+    return getBoardsCount() >1;
+  }
 }
