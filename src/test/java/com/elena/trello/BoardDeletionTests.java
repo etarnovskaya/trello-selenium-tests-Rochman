@@ -1,16 +1,15 @@
 package com.elena.trello;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class BoardDeletionTests  extends  TestBase{
+public class BoardDeletionTests extends TestBase {
   @BeforeMethod
   public void preconditions() throws InterruptedException {
-    if(!isAvatarPresentOnHeader()){
+    if (!isAvatarPresentOnHeader()) {
       loginAtlassianAcc();
     }
-    if(!isThereBoard()){
+    if (!isThereBoard()) {
       createBoard();
     }
   }
@@ -21,8 +20,9 @@ public class BoardDeletionTests  extends  TestBase{
     clickOpenMore();
     startCloseBoard();
     confirmCloseBoard();
-permanentlyDeleteBoard();
+    permanentlyDeleteBoard();
   }
+
   @Test
   public void testFirstBoardDeletion2() throws InterruptedException {
     openFirstBoard();
@@ -30,28 +30,7 @@ permanentlyDeleteBoard();
     clickOpenMore();
     startCloseBoard();
     confirmCloseBoard();
-returnToHomePage();
+    returnToHomePage();
   }
 
-  public void permanentlyDeleteBoard() {
-    click(By.cssSelector(".js-delete"));
-    confirmCloseBoard();
-  }
-
-  public void confirmCloseBoard() {
-    click(By.cssSelector(".js-confirm[type='submit']"));
-  }
-
-  private void startCloseBoard() throws InterruptedException {
-    pause(5000);
-    click(By.cssSelector(".js-close-board"));
-  }
-
-  public void clickOpenMore() {
-    click(By.cssSelector(".js-open-more"));
-  }
-
-  public void openFirstBoard() {
-    click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
-      }
 }

@@ -16,6 +16,17 @@ dependencies {
     implementation 'org.testng:testng:7.0.0'
 }
 
+ task testAll(type: Test){
+     useTestNG()
+ }
+
+task testRegression(type: Test){
+    useTestNG{
+        suites 'src/test/resources/testng.xml'
+    }
+}
+
 test{
     useTestNG()
 }
+

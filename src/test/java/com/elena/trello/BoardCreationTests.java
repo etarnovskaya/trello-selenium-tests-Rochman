@@ -28,10 +28,11 @@ int after = getBoardsCount();
   }
 
   @AfterClass
-  public void postActions(){
+  public void postActions() throws InterruptedException {
     int boardsCount = getBoardsCount();
-    while (boardsCount>5){
-      //delete board
+    while (boardsCount>4){
+      deleteBoard();
+      boardsCount = getBoardsCount();
     }
   }
 

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTest extends TestBase {
-  WebDriver wd;
+
 
     @Test
   public void testLogIn() throws InterruptedException {

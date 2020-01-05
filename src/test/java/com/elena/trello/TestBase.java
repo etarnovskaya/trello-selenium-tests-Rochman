@@ -3,18 +3,34 @@ package com.elena.trello;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-  WebDriver wd;
+  static WebDriver wd;
 
-  @BeforeClass
+  @BeforeSuite
   public void setUp(){
-    wd = new ChromeDriver();
+
+    String browser = BrowserType.FIREFOX;
+    if(browser.equals(BrowserType.CHROME)){
+      wd = new ChromeDriver();
+    } else
+      if(browser.equals(BrowserType.FIREFOX)){
+      wd = new FirefoxDriver();
+    } else
+      if(browser.equals(BrowserType.EDGE)){
+      wd = new EdgeDriver();
+    }
+
     wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     wd.get("https://trello.com/");
       }
@@ -23,7 +39,7 @@ public class TestBase {
     return wd.findElements(locator).size()>0;
   }
 
-  @AfterClass
+  @AfterSuite
   public void tearDown(){
     wd.quit();
   }
@@ -149,5 +165,36 @@ public class TestBase {
 
   public boolean isThereBoard() {
     return getBoardsCount() >1;
+  }
+
+  public void permanentlyDeleteBoard() {
+    click(By.cssSelector(".js-delete"));
+    confirmCloseBoard();
+  }
+
+  public void confirmCloseBoard() {
+    click(By.cssSelector(".js-confirm[type='submit']"));
+  }
+
+  protected void startCloseBoard() throws InterruptedException {
+    pause(5000);
+    click(By.cssSelector(".js-close-board"));
+  }
+
+  public void clickOpenMore() {
+    click(By.cssSelector(".js-open-more"));
+  }
+
+  public void openFirstBoard() {
+    click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+      }
+
+  public void deleteBoard() throws InterruptedException {
+    openFirstBoard();
+    pause(10000);
+    clickOpenMore();
+    startCloseBoard();
+    confirmCloseBoard();
+    returnToHomePage();
   }
 }
