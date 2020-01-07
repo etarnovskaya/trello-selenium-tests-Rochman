@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -20,7 +21,8 @@ public class TestBase {
   @BeforeSuite
   public void setUp(){
 
-    String browser = BrowserType.FIREFOX;
+    String browser =
+            System.getProperty("browser",BrowserType.CHROME);
     if(browser.equals(BrowserType.CHROME)){
       wd = new ChromeDriver();
     } else
@@ -53,7 +55,8 @@ public class TestBase {
     pause(5000);
     click(By.id("login"));
     click(By.id("login-submit"));
-    type(By.id("password"), pwd);
+    Thread.sleep(5000);
+    type(By.cssSelector("input[id=password]"), pwd);
     click(By.id("login-submit"));
   }
 

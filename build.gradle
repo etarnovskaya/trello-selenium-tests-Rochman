@@ -17,16 +17,28 @@ dependencies {
 }
 
  task testAll(type: Test){
-     useTestNG()
+     useTestNG{}
+     if (project.hasProperty('browser')){
+         systemProperty 'browser',  "${browser}"
+     }
  }
 
 task testRegression(type: Test){
     useTestNG{
         suites 'src/test/resources/testng.xml'
     }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser',  "${browser}"
+    }
+}
+task testTeams(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-teams.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
 }
 
-test{
-    useTestNG()
-}
+
 
