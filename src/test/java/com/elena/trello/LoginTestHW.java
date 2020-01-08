@@ -1,6 +1,5 @@
 package com.elena.trello;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,45 +7,45 @@ import org.testng.annotations.Test;
 public class LoginTestHW extends TestBase {
 @BeforeMethod
 public void ensurePreconditions(){
-  if(isAvatarPresentOnHeader()){
-    logout();
+  if(app.isAvatarPresentOnHeader()){
+    app.logout();
   }
 }
 
   @Test
   public void testLogInWithAtlassianAcc() throws InterruptedException {
-    clickLoginLink();
-    fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
-    pause(20000);
+    app.clickLoginLink();
+    app.fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
+    app.pause(20000);
     Assert.assertTrue
-            (isAvatarPresentOnHeader());
+            (app.isAvatarPresentOnHeader());
   }
   @Test
   public void testLogInWithAtlassianAcc2() throws InterruptedException {
-    clickLoginLink();
-    fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
-    pause(20000);
+    app.clickLoginLink();
+    app.fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
+    app.pause(20000);
     Assert.assertTrue
-            (isAvatarPresentOnHeader());
+            (app.isAvatarPresentOnHeader());
   }
 
   @Test(enabled = false)
   public void negativeTestLogInWithAtlassianAcc() throws InterruptedException {
-    clickLoginLink();
-    fillLoginFormAtlassianAcc("roch", "");
-    pause(8000);
-    Assert.assertTrue(isErrorPresent());
+    app.clickLoginLink();
+    app.fillLoginFormAtlassianAcc("roch", "");
+    app.pause(8000);
+    Assert.assertTrue(app.isErrorPresent());
     Assert.assertTrue
-            (!isAvatarPresentOnHeader());
+            (!app.isAvatarPresentOnHeader());
   }
 
   @Test(enabled = false)
   public void testLogInOldAcc() throws InterruptedException {
-    clickLoginLink();
-    fillLoginFormOldAcc("elena.telran@yahoo.com", "12345.com");
-    confirmLogin();
+    app.clickLoginLink();
+    app.fillLoginFormOldAcc("elena.telran@yahoo.com", "12345.com");
+    app.confirmLogin();
     Assert.assertTrue
-            (isAvatarPresentOnHeader());
+            (app.isAvatarPresentOnHeader());
   }
 
 

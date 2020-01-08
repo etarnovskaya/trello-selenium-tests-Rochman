@@ -6,31 +6,31 @@ import org.testng.annotations.Test;
 public class BoardDeletionTests extends TestBase {
   @BeforeMethod
   public void preconditions() throws InterruptedException {
-    if (!isAvatarPresentOnHeader()) {
-      loginAtlassianAcc();
+    if (!app.isAvatarPresentOnHeader()) {
+      app.loginAtlassianAcc();
     }
-    if (!isThereBoard()) {
-      createBoard();
+    if (!app.isThereBoard()) {
+      app.createBoard();
     }
   }
 
   @Test
   public void testFirstBoardDeletion1() throws InterruptedException {
-    openFirstBoard();
-    clickOpenMore();
-    startCloseBoard();
-    confirmCloseBoard();
-    permanentlyDeleteBoard();
+    app.openFirstBoard();
+    app.clickOpenMore();
+    app.startCloseBoard();
+    app.confirmCloseBoard();
+    app.permanentlyDeleteBoard();
   }
 
   @Test
   public void testFirstBoardDeletion2() throws InterruptedException {
-    openFirstBoard();
-    pause(10000);
-    clickOpenMore();
-    startCloseBoard();
-    confirmCloseBoard();
-    returnToHomePage();
+    app.openFirstBoard();
+    app.pause(10000);
+    app.clickOpenMore();
+    app.startCloseBoard();
+    app.confirmCloseBoard();
+    app.returnToHomePage();
   }
 
 }
