@@ -15,16 +15,29 @@ public class TeamCreationTests extends TestBase{
 
   @Test
   public void teamCreationTestFromHeader(){
-
+int teamCountBefore = getTeamsCount();
+    String teamId =
+            wd.findElement(By.cssSelector("[data-test-id^=home-team-tab-section]")).getAttribute("data-test-id");
+    System.out.println(teamId);
     clickOnPlusButton();
     selectCreateTeamFromDropDown();
     fillTeamCreationForm("teamName", "teamDescr");
     submitTeamCreation();
-    if(isElementPresent(By.cssSelector("[name='close']"))){
-      closeInviteToTheTeamForm();
-    }
+//    if(isElementPresent(By.cssSelector("[name='close']"))){
+//      closeInviteToTheTeamForm();
+//    }
+    clickLaterButton();
+int teamCountAfter = getTeamsCount();
+  Assert.assertEquals(teamCountAfter, teamCountBefore+1);
+    String overflowValue = wd.findElement(By.cssSelector("")).getCssValue("overflow");
+  }
 
-    Assert.assertTrue(isElementPresent(By.cssSelector("[data-test-id=home-team-tab-name]")));
+  private void clickLaterButton() {
+    click(By.cssSelector("[data-test-id=show-later-button]"));
+  }
+
+  public int getTeamsCount() {
+    return wd.findElements(By.cssSelector("[data-test-id^=home-team-tab-section]")).size();
   }
 
   public void submitTeamCreation() {
