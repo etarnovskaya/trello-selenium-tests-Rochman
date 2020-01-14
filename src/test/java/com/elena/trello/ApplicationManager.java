@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.BrowserType;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+  BoardHelper boardHelper;
    WebDriver wd;
 
   public void init() {
@@ -26,11 +27,11 @@ public class ApplicationManager {
     }
     wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     wd.get("https://trello.com/");
+
+    boardHelper = new BoardHelper(wd);
   }
 
-  public  boolean isElementPresent(By locator){
-    return wd.findElements(locator).size()>0;
-  }
+
 
   public void stop() {
     wd.quit();
@@ -38,6 +39,18 @@ public class ApplicationManager {
 
   public void pause(int millis) throws InterruptedException {
     Thread.sleep(millis);
+  }
+  public void click(By locator) {
+    wd.findElement(locator).click();
+  }
+  public void type(By locator, String text) {
+    click(locator);
+    wd.findElement(locator).clear();
+    wd.findElement(locator).sendKeys(text);
+  }
+
+  public  boolean isElementPresent(By locator){
+    return wd.findElements(locator).size()>0;
   }
 
   public void fillLoginFormAtlassianAcc(String user, String pwd) throws InterruptedException {
@@ -51,23 +64,17 @@ public class ApplicationManager {
   }
 
   public void confirmLogin() {
-    click(By.id("login"));
+        click(By.id("login"));
   }
 
-  public void click(By locator) {
-    wd.findElement(locator).click();
-  }
+
 
   public void fillLoginFormOldAcc(String userName, String password) {
     type(By.id("user"), userName);
     type(By.id("password"), password);
   }
 
-  public void type(By locator, String text) {
-    click(locator);
-    wd.findElement(locator).clear();
-    wd.findElement(locator).sendKeys(text);
-  }
+
 
   public void clickLoginLink(){
 
@@ -120,75 +127,9 @@ public class ApplicationManager {
     return isElementPresent(By.id("error"));
   }
 
-  public int getBoardsCount() {
-    return wd.findElements(By.cssSelector("ul.boards-page-board-section-list li")).size()-1;
-  }
-
   public void returnToHomePage() {
     click(By.name("house"));
     click(By.name("house"));
-  }
-
-  public void confirmBoardCreation() {
-    click(By.cssSelector("[data-test-id='create-board-submit-button']"));
-
-  }
-
-  public void fillBoardForm(String boardName) {
-    type(By.cssSelector("[data-test-id='create-board-title-input']"), boardName);
-  }
-
-  public void selectCreateBoardFromDropDown() {
-    click(By.xpath("//span[@name='board']/..//p"));
-
-  }
-
-  public void createBoard() throws InterruptedException {
-    clickOnPlusButton();
-    selectCreateBoardFromDropDown();
-    fillBoardForm("qa22"+ System.currentTimeMillis());
-    confirmBoardCreation();
-    pause(15000);
-    returnToHomePage();
-  }
-
-  public void clickOnPlusButton() {
-    click(By.cssSelector("[data-test-id='header-create-menu-button']"));
-  }
-
-  public boolean isThereBoard() {
-    return getBoardsCount() >1;
-  }
-
-  public void permanentlyDeleteBoard() {
-    click(By.cssSelector(".js-delete"));
-    confirmCloseBoard();
-  }
-
-  public void confirmCloseBoard() {
-    click(By.cssSelector(".js-confirm[type='submit']"));
-  }
-
-  public void startCloseBoard() throws InterruptedException {
-    pause(5000);
-    click(By.cssSelector(".js-close-board"));
-  }
-
-  public void clickOpenMore() {
-    click(By.cssSelector(".js-open-more"));
-  }
-
-  public void openFirstBoard() {
-    click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
-      }
-
-  public void deleteBoard() throws InterruptedException {
-    openFirstBoard();
-    pause(10000);
-    clickOpenMore();
-    startCloseBoard();
-    confirmCloseBoard();
-    returnToHomePage();
   }
 
   public void clickLaterButton() {
@@ -214,5 +155,9 @@ public class ApplicationManager {
 
   public void selectCreateTeamFromDropDown() {
     click(By.cssSelector("[data-test-id='header-create-team-button']"));
+  }
+
+  public BoardHelper getBoardHelper() {
+    return boardHelper;
   }
 }

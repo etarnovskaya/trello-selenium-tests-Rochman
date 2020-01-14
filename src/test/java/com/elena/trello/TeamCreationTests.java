@@ -17,7 +17,7 @@ int teamCountBefore = app.getTeamsCount();
 //    String teamId =
 //            wd.findElement(By.cssSelector("[data-test-id^=home-team-tab-section]")).getAttribute("data-test-id");
    // System.out.println(teamId);
-    app.clickOnPlusButton();
+    app.getBoardHelper().clickOnPlusButton();
     app.selectCreateTeamFromDropDown();
     app.fillTeamCreationForm("teamName", "teamDescr");
     app.submitTeamCreation();
