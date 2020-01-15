@@ -1,4 +1,4 @@
-package com.elena.trello;
+package com.elena.trello.manager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

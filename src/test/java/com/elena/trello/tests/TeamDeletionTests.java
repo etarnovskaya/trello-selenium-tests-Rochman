@@ -1,4 +1,4 @@
-package com.elena.trello;
+package com.elena.trello.tests;
 
 public class TeamDeletionTests extends  TestBase {
 }

@@ -3,8 +3,8 @@
 <suite name="Suite1" verbose="1" >
     <test name="Regression" >
         <classes>
-            <class name="com.elena.trello.LoginTestHW" />
-            <class name="com.elena.trello.BoardCreationTests" />
+            <class name="com.elena.trello.tests.LoginTestHW" />
+            <class name="com.elena.trello.tests.BoardCreationTests" />
             </classes>
     </test>
 
