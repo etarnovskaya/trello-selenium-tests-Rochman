@@ -1,5 +1,6 @@
 package com.elena.trello.manager;
 
+import com.elena.trello.model.BoardData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,8 +18,9 @@ public class BoardHelper  extends  HelperBase{
 
   }
 
-  public void fillBoardForm(String boardName) {
-    type(By.cssSelector("[data-test-id='create-board-title-input']"), boardName);
+  public void fillBoardForm(BoardData boardData) {
+    type(By.cssSelector("[data-test-id='create-board-title-input']"),
+            boardData.getBoardName());
   }
 
   public void selectCreateBoardFromDropDown() {
@@ -29,7 +31,7 @@ public class BoardHelper  extends  HelperBase{
   public void createBoard() throws InterruptedException {
     clickOnPlusButton();
     selectCreateBoardFromDropDown();
-    fillBoardForm("qa22"+ System.currentTimeMillis());
+    fillBoardForm(new BoardData("qa22" + System.currentTimeMillis()));
     confirmBoardCreation();
     pause(15000);
     returnToHomePage();

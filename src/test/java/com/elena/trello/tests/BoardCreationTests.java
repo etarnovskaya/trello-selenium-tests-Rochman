@@ -1,5 +1,6 @@
 package com.elena.trello.tests;
 
+import com.elena.trello.model.BoardData;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +18,7 @@ public class BoardCreationTests extends  TestBase{
 int before =   app.getBoard().getBoardsCount();
     app.getBoard().clickOnPlusButton();
 app.getBoard().selectCreateBoardFromDropDown();
-app.getBoard().fillBoardForm("qa22"+ System.currentTimeMillis());
+app.getBoard().fillBoardForm(new BoardData("qa22" + System.currentTimeMillis()));
 app.getBoard().confirmBoardCreation();
 app.getBoard().pause(15000);
 app.getHeader().returnToHomePage();
