@@ -13,7 +13,7 @@ public class TeamCreationTests extends TestBase{
     }
   }
   @Test
-  public void teamCreationTestFromHeader(){
+  public void teamCreationTestFromHeader() throws InterruptedException {
 int teamCountBefore = app.getTeam().getTeamsCount();
 //    String teamId =
 //            wd.findElement(By.cssSelector("[data-test-id^=home-team-tab-section]")).getAttribute("data-test-id");
@@ -33,7 +33,7 @@ int teamCountAfter = app.getTeam().getTeamsCount();
   Assert.assertEquals(teamCountAfter, teamCountBefore+1);
   }
   @Test
-  public void teamCreationTestFromHeaderWithNameOnly(){
+  public void teamCreationTestFromHeaderWithNameOnly() throws InterruptedException {
     int teamCountBefore = app.getTeam().getTeamsCount();
 //    String teamId =
 //            wd.findElement(By.cssSelector("[data-test-id^=home-team-tab-section]")).getAttribute("data-test-id");

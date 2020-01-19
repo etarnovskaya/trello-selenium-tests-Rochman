@@ -29,7 +29,6 @@ public class SessionHelper extends HelperBase{
   }
 
   public void clickLoginLink(){
-
     click(By.cssSelector("[href='/login']"));
   }
 
@@ -63,7 +62,7 @@ public class SessionHelper extends HelperBase{
   public void loginAtlassianAcc() throws InterruptedException {
     clickLoginLink();
     fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
-    pause(20000);
+    pause(10000);
 
   }
 

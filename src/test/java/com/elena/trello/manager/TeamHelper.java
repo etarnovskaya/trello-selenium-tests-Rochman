@@ -12,7 +12,8 @@ public class TeamHelper extends  HelperBase{
     return wd.findElements(By.cssSelector("[data-test-id^=home-team-tab-section]")).size();
   }
 
-  public void submitTeamCreation() {
+  public void submitTeamCreation() throws InterruptedException {
+      //pause(10000);
     click(By.cssSelector("[data-test-id='header-create-team-submit-button']"));
   }
 
