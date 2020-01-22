@@ -27,7 +27,7 @@ public class ApplicationManager  {
       if(browser.equals(BrowserType.EDGE)){
       wd = new EdgeDriver();
     }
-    wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("https://trello.com/");
 
     board = new BoardHelper(wd);

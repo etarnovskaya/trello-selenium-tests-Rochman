@@ -3,40 +3,10 @@ package com.elena.trello.tests;
 import com.elena.trello.model.TeamData;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 public class TeamCreationTests extends TestBase{
-  @DataProvider
-  public Iterator<Object[]> validTeams(){
-    List<Object[]> list = new ArrayList<>();
-    list.add(new Object[]{"name DP","decsription DP"});
-    list.add(new Object[]{"DPn",""});
-    return list.iterator();
-  }
 
-  @DataProvider
-  public Iterator<Object[]> validTeamsCSV() throws IOException {
-    List<Object[]> list = new ArrayList<>();
-    BufferedReader  reader= new BufferedReader(
-            new FileReader(new File("src/test/resources/teamsPositiveCSV.csv")));
-    String line = reader.readLine();
-    while (line!=null){
-      String[] split = line.split(",");
-      list.add(new Object[] {
-              new TeamData()
-              .withTeamName(split[0])
-              .withTeamDescr(split[1])});
-
-      line = reader.readLine();
-    }
-    return list.iterator();
-  }
 
   @BeforeMethod
   public void preconditions() throws InterruptedException {
@@ -45,7 +15,7 @@ public class TeamCreationTests extends TestBase{
     }
   }
 
-  @Test(dataProvider = "validTeamsCSV")
+  @Test(dataProvider = "validTeamsCSV", dataProviderClass = DataProviders.class)
   public void teamCreationTestFromHeaderCSV(TeamData team) throws InterruptedException {
     int teamCountBefore = app.getTeam().getTeamsCount();
 
@@ -58,11 +28,13 @@ public class TeamCreationTests extends TestBase{
 //      closeInviteToTheTeamForm();
 //    }
     app.getTeam().clickLaterButton();
+    app.getHeader().returnToHomePage();
+
     int teamCountAfter = app.getTeam().getTeamsCount();
-    //Assert.assertEquals(teamCountAfter, teamCountBefore+1);
+    Assert.assertEquals(teamCountAfter, teamCountBefore+1);
   }
 
-  @Test(dataProvider = "validTeams")
+  @Test(dataProvider = "validTeams", dataProviderClass = DataProviders.class)
   public void teamCreationTestFromHeaderWithDP
           (String teamName, String teamDescr) throws InterruptedException {
     int teamCountBefore = app.getTeam().getTeamsCount();
@@ -78,6 +50,8 @@ public class TeamCreationTests extends TestBase{
 //      closeInviteToTheTeamForm();
 //    }
     app.getTeam().clickLaterButton();
+    app.getHeader().returnToHomePage();
+
     int teamCountAfter = app.getTeam().getTeamsCount();
     Assert.assertEquals(teamCountAfter, teamCountBefore+1);
   }
@@ -97,6 +71,7 @@ int teamCountBefore = app.getTeam().getTeamsCount();
 //      closeInviteToTheTeamForm();
 //    }
     app.getTeam().clickLaterButton();
+    app.getHeader().returnToHomePage();
 int teamCountAfter = app.getTeam().getTeamsCount();
   Assert.assertEquals(teamCountAfter, teamCountBefore+1);
   }
@@ -116,6 +91,8 @@ int teamCountAfter = app.getTeam().getTeamsCount();
 //      closeInviteToTheTeamForm();
 //    }
     app.getTeam().clickLaterButton();
+    app.getHeader().returnToHomePage();
+
     int teamCountAfter = app.getTeam().getTeamsCount();
     Assert.assertEquals(teamCountAfter, teamCountBefore+1);
   }

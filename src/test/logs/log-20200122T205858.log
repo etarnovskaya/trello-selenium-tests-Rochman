@@ -1,0 +1,6 @@
+2020-01-22 20:59:11,811 INFO [Test worker] c.e.t.t.TestBase [TestBase.java:20] Start test teamCreationTestFromHeaderCSV with parameters [TeamData{teamName='a', teamDescr='d'}]
+2020-01-22 21:00:35,784 INFO [Test worker] c.e.t.t.TestBase [TestBase.java:26] Stop test teamCreationTestFromHeaderCSV
+2020-01-22 21:00:35,786 INFO [Test worker] c.e.t.t.TestBase [TestBase.java:20] Start test teamCreationTestFromHeaderCSV with parameters [TeamData{teamName='bvhzsurj8jdejg_du0hc', teamDescr='12hzsurj8jdejg_3du0h'}]
+2020-01-22 21:00:59,149 INFO [Test worker] c.e.t.t.TestBase [TestBase.java:26] Stop test teamCreationTestFromHeaderCSV
+2020-01-22 21:00:59,154 INFO [Test worker] c.e.t.t.TestBase [TestBase.java:20] Start test teamCreationTestFromHeaderCSV with parameters [TeamData{teamName='7VkXB4iK4IzyDBNgZFL7WCvOnm9McoYyZiCISZgV5RvbF kz1kiOrBj1wyKyOldats4ep2QMO93ERN1Yk0quhpcoK1NAzrQWEXi', teamDescr='HY2uajYTwCoikBpyh3iy LWQdYYa7ELW8d5HRKNfJ ybRYPYzrFgZ3CayTSgRm WS8NrKQZWbvstxcOyle4 yhCReCvBRqCfJPzaQPv'}]
+2020-01-22 21:01:23,762 INFO [Test worker] c.e.t.t.TestBase [TestBase.java:26] Stop test teamCreationTestFromHeaderCSV

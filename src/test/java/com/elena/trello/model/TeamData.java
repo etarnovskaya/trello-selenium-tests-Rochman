@@ -21,4 +21,12 @@ public class TeamData {
     this.teamDescr = teamDescr;
     return this;
   }
+
+  @Override
+  public String toString() {
+    return "TeamData{" +
+            "teamName='" + teamName + '\'' +
+            ", teamDescr='" + teamDescr + '\'' +
+            '}';
+  }
 }
