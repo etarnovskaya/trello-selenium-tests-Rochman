@@ -29,7 +29,7 @@ public class SessionHelper extends HelperBase{
   }
 
   public void clickLoginLink(){
-    click(By.cssSelector("[href='/login']"));
+    click(By.cssSelector("[hre='/login']"));
   }
 
   public void loginWhithBothAccs() throws InterruptedException {

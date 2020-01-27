@@ -7,7 +7,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
-
 public class ApplicationManager  {
   BoardHelper board;
   TeamHelper team;
@@ -27,7 +26,7 @@ public class ApplicationManager  {
       if(browser.equals(BrowserType.EDGE)){
       wd = new EdgeDriver();
     }
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     wd.get("https://trello.com/");
 
     board = new BoardHelper(wd);
@@ -56,4 +55,5 @@ public class ApplicationManager  {
   public HeaderHelper getHeader() {
     return header;
   }
+
 }
