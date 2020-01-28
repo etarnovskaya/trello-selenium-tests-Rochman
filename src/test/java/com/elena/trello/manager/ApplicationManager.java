@@ -1,13 +1,21 @@
 package com.elena.trello.manager;
 
+import com.google.common.io.Files;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 public class ApplicationManager  {
+  Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
   BoardHelper board;
   TeamHelper team;
   SessionHelper session;
@@ -37,6 +45,9 @@ public class ApplicationManager  {
 
   public void stop() {
     wd.quit();
+//    wd.getWindowHandles();
+//    wd.getWindowHandle();
+
   }
 
 
@@ -44,9 +55,6 @@ public class ApplicationManager  {
     return board;
   }
 
-  public TeamHelper getTeam() {
-    return team;
-  }
 
   public SessionHelper getSession() {
     return session;
@@ -54,6 +62,22 @@ public class ApplicationManager  {
 
   public HeaderHelper getHeader() {
     return header;
+  }
+
+  public TeamHelper getTeam() {
+    return team;
+  }
+
+  public void takeScreenshot(){
+    File tmp = ((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
+    File screenshot =  new File("src/test/logs/screenshots/screen-"+System.currentTimeMillis()+".png");
+
+    try {
+      Files.copy(tmp, screenshot);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    logger.info("\nCreated screenshot: "+ screenshot.getAbsolutePath());
   }
 
 }

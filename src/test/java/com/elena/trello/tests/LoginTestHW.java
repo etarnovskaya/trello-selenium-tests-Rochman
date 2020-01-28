@@ -22,6 +22,7 @@ public void ensurePreconditions(){
   }
   @Test
   public void testLogInWithAtlassianAcc2() throws InterruptedException {
+ // app.takeScreenshot();
     app.getSession().clickLoginLink();
     app.getSession().fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
     app.getSession().pause(20000);

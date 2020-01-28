@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import static com.elena.trello.tests.TestBase.app;
+
 
 public class Listener implements ITestListener {
   Logger logger = LoggerFactory.getLogger(Listener.class);
@@ -16,8 +18,9 @@ public class Listener implements ITestListener {
 
   @Override
   public void onTestFailure(ITestResult result) {
-    logger.error(result.getName() + "\n FAILED\n"
+    logger.error(result.getName() + "\n !!! FAILED !!!\n"
             + result.getThrowable().toString());
+    app.takeScreenshot();
 
   }
 
