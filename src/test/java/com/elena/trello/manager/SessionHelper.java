@@ -2,6 +2,7 @@ package com.elena.trello.manager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
@@ -90,16 +91,20 @@ public class SessionHelper extends HelperBase {
   public void openAndSwitchToAtlassianProfile() {
     click(By.cssSelector("[href $=manage-profile]"));
     String trellow = wd.getWindowHandle();
-//    System.out.println(trellow);
+    System.out.println(trellow);
     ArrayList<String> availableWindows = new ArrayList(wd.getWindowHandles());
     if (!availableWindows.isEmpty()) {
       wd.switchTo().window(availableWindows.get(1));
     }
+    String atlassian = wd.getWindowHandle();
+    System.out.println(atlassian);
   }
 
   public void addPictureAndCloseWindow() throws InterruptedException {
+    WebElement avatar = wd
+            .findElement(By.cssSelector("[data-test-selector='profile-avatar']"));
     new Actions(wd)
-            .moveToElement(wd.findElement(By.cssSelector("[data-test-selector='profile-avatar']"))).perform();
+            .moveToElement(avatar).perform();
     click(By.cssSelector("[data-test-selector='profile-hover-info']"));
     if (isElementPresent(By.cssSelector("[role=menu]"))) {
       click(By.xpath("//*[@role='menu']//span[@role='menuitem'][1]"));
@@ -115,6 +120,12 @@ public class SessionHelper extends HelperBase {
       pause(5000);
       wd.navigate().refresh();
       pause(5000);
+    }
+  }
+
+  private void attachFile(By locator, File file) {
+    if(file!= null){
+      wd.findElement(locator).sendKeys(file.getAbsolutePath());
     }
   }
 }

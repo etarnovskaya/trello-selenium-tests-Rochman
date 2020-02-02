@@ -3,8 +3,18 @@ package com.elena.trello.model;
 public class TeamData {
   private  String teamName;
   private  String teamDescr;
+  String teamType;
 
-   public String getTeamName() {
+  public String getTeamType() {
+    return teamType;
+  }
+
+  public TeamData setTeamType(String teamType) {
+    this.teamType = teamType;
+    return this;
+  }
+
+  public String getTeamName() {
     return teamName;
   }
 

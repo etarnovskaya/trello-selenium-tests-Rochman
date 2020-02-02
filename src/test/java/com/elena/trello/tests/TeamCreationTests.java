@@ -64,7 +64,7 @@ int teamCountBefore = app.getTeam().getTeamsCount();
     app.getTeam().selectCreateTeamFromDropDown();
     app.getTeam().fillTeamCreationForm(new TeamData()
             .withTeamName("teamName")
-            .withTeamDescr("teamDescr"));
+             .withTeamDescr("teamDescr"));
 
     app.getTeam().submitTeamCreation();
 //    if(isElementPresent(By.cssSelector("[name='close']"))){
@@ -92,6 +92,8 @@ int teamCountAfter = app.getTeam().getTeamsCount();
 //    }
     app.getTeam().clickLaterButton();
     app.getHeader().returnToHomePage();
+app.getTeam().pause(10000);
+
 
     int teamCountAfter = app.getTeam().getTeamsCount();
     Assert.assertEquals(teamCountAfter, teamCountBefore+1);
