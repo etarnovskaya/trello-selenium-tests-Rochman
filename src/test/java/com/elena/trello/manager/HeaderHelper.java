@@ -14,6 +14,6 @@ public class HeaderHelper  extends  HelperBase{
 
   public void returnToHomePage() {
     click(By.cssSelector("[aria-label='Back to Home']"));
-    //click(By.name("house"));
+    click(By.name("house"));
   }
 }

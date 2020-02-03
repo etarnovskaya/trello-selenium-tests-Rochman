@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Teams" verbose="1">
+    <test name="Team">
+        <classes>
+            <class name="com.elena.trello.tests.TeamCreationTests"/>
+        </classes>
+    </test>
+</suite>
