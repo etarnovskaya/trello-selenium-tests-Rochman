@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.elena.trello.tests.LoginTestHW" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-02-03T11:22:10" hostname="Lena-Toshiba" time="79.188">
+  <properties/>
+  <testcase name="testLogInWithAtlassianAcc" classname="com.elena.trello.tests.LoginTestHW" time="37.914"/>
+  <testcase name="testLogInWithAtlassianAcc2" classname="com.elena.trello.tests.LoginTestHW" time="39.3"/>
+  <system-out><![CDATA[13:22:00.885 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testLogInWithAtlassianAcc with parameters []
+13:22:48.887 [Test worker] INFO  com.elena.trello.utils.Listener - testLogInWithAtlassianAcc PASSED
+13:22:48.889 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testLogInWithAtlassianAcc
+13:22:48.892 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testLogInWithAtlassianAcc2 with parameters []
+13:23:30.159 [Test worker] INFO  com.elena.trello.utils.Listener - testLogInWithAtlassianAcc2 PASSED
+13:23:30.162 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testLogInWithAtlassianAcc2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
