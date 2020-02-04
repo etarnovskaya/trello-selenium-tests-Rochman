@@ -2,13 +2,7 @@ package com.elena.trello.manager;
 
 import com.elena.trello.model.TeamData;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
 
 public class TeamHelper extends  HelperBase{
     public TeamHelper(WebDriver wd) {
@@ -50,4 +44,31 @@ public class TeamHelper extends  HelperBase{
   }
 
 
+  public void clickOnFirstTeam() {
+      click(By.cssSelector("[data-test-id='home-team-tab-name']"));
+  }
+
+  public void openSettings() {
+      click(By.cssSelector(".icon-gear.icon-sm"));
+  }
+
+  public void deleteTeam() throws InterruptedException {
+refreshPage();
+click(By.cssSelector("a.quiet-button"));
+click(By.cssSelector(".js-confirm.full.negate"));
+
+  }
+
+  public void cleanTeams() throws InterruptedException {
+    int count = getTeamsCount();
+    while (count > 5) {
+      clickOnFirstTeam();
+      openSettings();
+      deleteTeam();
+      returnToHomePage();
+      refreshPage();
+      count = getTeamsCount();
+     // System.out.println("Now Teams count is: " +count);
+    }
+  }
 }
