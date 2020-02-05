@@ -35,12 +35,16 @@ public class ApplicationManager  {
       wd = new EdgeDriver();
     }
     wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    wd.get("https://trello.com/");
+    openSite();
 
     board = new BoardHelper(wd);
     team = new TeamHelper(wd);
     session = new SessionHelper(wd);
     header = new HeaderHelper(wd);
+  }
+
+  public void openSite() {
+    wd.get("https://trello.com/");
   }
 
   public void stop() {

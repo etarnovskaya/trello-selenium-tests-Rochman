@@ -9,6 +9,7 @@ public class LoginTestHW extends TestBase {
 public void ensurePreconditions(){
   if(app.getSession().isAvatarPresentOnHeader()){
     app.getSession().logout();
+
   }
 }
 

@@ -35,7 +35,7 @@ public class SessionHelper extends HelperBase {
   }
 
   public void clickLoginLink() {
-    click(By.cssSelector("[href='/login']"));
+        click(By.cssSelector("[href='/login']"));
   }
 
   public void loginWhithBothAccs() throws InterruptedException {
@@ -60,9 +60,11 @@ public class SessionHelper extends HelperBase {
             (By.cssSelector("[data-test-id='header-member-menu-button']"));
   }
 
-  public void logout() {
+  public void logout() throws InterruptedException {
     header.clickOnAvatar();
     clickLogoutButton();
+    pause(10000);
+
   }
 
   public void loginAtlassianAcc() throws InterruptedException {
