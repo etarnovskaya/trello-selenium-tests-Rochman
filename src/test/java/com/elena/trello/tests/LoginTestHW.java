@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class LoginTestHW extends TestBase {
 @BeforeMethod
-public void ensurePreconditions(){
+public void ensurePreconditions() throws InterruptedException {
   if(app.getSession().isAvatarPresentOnHeader()){
     app.getSession().logout();
 
