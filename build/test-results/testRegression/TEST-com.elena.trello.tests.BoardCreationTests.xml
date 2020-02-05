@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.elena.trello.tests.BoardCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-02-03T11:23:30" hostname="Lena-Toshiba" time="18.536">
+<testsuite name="com.elena.trello.tests.BoardCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-02-05T17:14:33" hostname="Lena-Toshiba" time="19.538">
   <properties/>
-  <testcase name="testBoardCreationFromHeader" classname="com.elena.trello.tests.BoardCreationTests" time="18.536"/>
-  <system-out><![CDATA[13:23:30.169 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testBoardCreationFromHeader with parameters []
-13:23:48.723 [Test worker] INFO  com.elena.trello.utils.Listener - testBoardCreationFromHeader PASSED
-13:23:48.724 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testBoardCreationFromHeader
+  <testcase name="testBoardCreationFromHeader" classname="com.elena.trello.tests.BoardCreationTests" time="19.538"/>
+  <system-out><![CDATA[19:14:33.070 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testBoardCreationFromHeader with parameters []
+19:14:52.627 [Test worker] INFO  com.elena.trello.utils.Listener - testBoardCreationFromHeader PASSED
+19:14:52.629 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testBoardCreationFromHeader
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.elena.trello.tests.LoginTestHW" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-02-03T11:22:10" hostname="Lena-Toshiba" time="79.188">
+<testsuite name="com.elena.trello.tests.LoginTestHW" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-02-05T17:12:58" hostname="Lena-Toshiba" time="94.571">
   <properties/>
-  <testcase name="testLogInWithAtlassianAcc" classname="com.elena.trello.tests.LoginTestHW" time="37.914"/>
-  <testcase name="testLogInWithAtlassianAcc2" classname="com.elena.trello.tests.LoginTestHW" time="39.3"/>
-  <system-out><![CDATA[13:22:00.885 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testLogInWithAtlassianAcc with parameters []
-13:22:48.887 [Test worker] INFO  com.elena.trello.utils.Listener - testLogInWithAtlassianAcc PASSED
-13:22:48.889 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testLogInWithAtlassianAcc
-13:22:48.892 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testLogInWithAtlassianAcc2 with parameters []
-13:23:30.159 [Test worker] INFO  com.elena.trello.utils.Listener - testLogInWithAtlassianAcc2 PASSED
-13:23:30.162 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testLogInWithAtlassianAcc2
+  <testcase name="testLogInWithAtlassianAcc" classname="com.elena.trello.tests.LoginTestHW" time="43.808"/>
+  <testcase name="testLogInWithAtlassianAcc2" classname="com.elena.trello.tests.LoginTestHW" time="37.332"/>
+  <system-out><![CDATA[19:12:48.422 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testLogInWithAtlassianAcc with parameters []
+19:13:42.293 [Test worker] INFO  com.elena.trello.utils.Listener - testLogInWithAtlassianAcc PASSED
+19:13:42.296 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testLogInWithAtlassianAcc
+19:13:42.298 [Test worker] INFO  com.elena.trello.tests.TestBase - Start test testLogInWithAtlassianAcc2 with parameters []
+19:14:33.053 [Test worker] INFO  com.elena.trello.utils.Listener - testLogInWithAtlassianAcc2 PASSED
+19:14:33.057 [Test worker] INFO  com.elena.trello.tests.TestBase - Stop test testLogInWithAtlassianAcc2
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[1580922822906	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:237:64
+1580922823684	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:237:64
+l@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:94:97648
+u@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:94:97740
+fe/u</a.sendEvents@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:94:98002
+fe/s.flush@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:94:100497
+stop@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:94:112041
+value@https://a.trellocdn.com/prgb/dist/br/app.a00a5319c2171ce33e31.js:1:3935197
+Iu/<@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:101017
+t.unstable_runWithPriority@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:286:3460
+Gi@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:45470
+Iu@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:97394
+gu@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:87711
+Yi/<@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:45760
+t.unstable_runWithPriority@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:286:3460
+Gi@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:45470
+Yi@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:45708
+Ki@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:45641
+ae@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:114637
+kn/r<@https://a.trellocdn.com/prgb/dist/br/ltp.da2382a453d0225d0859.js:278:29164
+event.synthesizeMouseAtPoint@chrome://marionette/content/event.js:213:14
+webdriverClickElement@chrome://marionette/content/interaction.js:183:11
+1580922836722	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+bail@chrome://marionette/content/sync.js:237:64
+]]></system-err>
 </testsuite>
