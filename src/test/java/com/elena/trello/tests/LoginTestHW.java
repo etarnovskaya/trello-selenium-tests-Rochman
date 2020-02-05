@@ -8,8 +8,7 @@ public class LoginTestHW extends TestBase {
 @BeforeMethod
 public void ensurePreconditions() throws InterruptedException {
   if(app.getSession().isAvatarPresentOnHeader()){
-    
-    app.getSession().logout();
+     app.getSession().logout();
 
   }
 }
