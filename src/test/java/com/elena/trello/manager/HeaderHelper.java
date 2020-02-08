@@ -13,7 +13,17 @@ public class HeaderHelper  extends  HelperBase{
   }
 
   public void returnToHomePage() {
+    try {
+      pause(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     click(By.cssSelector("[aria-label='Back to Home']"));
     click(By.name("house"));
+    try {
+      pause(5000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 }

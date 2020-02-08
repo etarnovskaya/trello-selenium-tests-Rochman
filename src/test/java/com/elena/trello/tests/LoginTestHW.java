@@ -21,7 +21,7 @@ public void ensurePreconditions() throws InterruptedException {
     Assert.assertTrue
             (app.getSession().isAvatarPresentOnHeader());
   }
-  @Test
+  @Test(enabled=false)
   public void testLogInWithAtlassianAcc2() throws InterruptedException {
  // app.takeScreenshot();
     app.getSession().clickLoginLink();
