@@ -3,10 +3,12 @@ package com.elena.trello.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+
 public class ChangeUserAvatar extends TestBase {
   @BeforeMethod
   public void preconditions() throws InterruptedException {
     if (!app.getSession().isAvatarPresentOnHeader()) {
+		
       app.getSession().loginAtlassianAcc();
     }
   }
