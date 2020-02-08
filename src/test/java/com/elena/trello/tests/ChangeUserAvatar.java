@@ -21,6 +21,7 @@ public class ChangeUserAvatar extends TestBase {
     app.getSession().openAndSwitchToAtlassianProfile();
     app.getSession().addPictureAndCloseWindow();
     logger.info("avatar after:");
+	
     app.takeScreenshot();
 
   }
