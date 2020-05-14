@@ -67,9 +67,9 @@ public class SessionHelper extends HelperBase {
 
   }
 
-  public void loginAtlassianAcc() throws InterruptedException {
+  public void loginAtlassianAcc(String user, String pwd) throws InterruptedException {
     clickLoginLink();
-    fillLoginFormAtlassianAcc("rochman.elena@gmail.com", "12345.com");
+    fillLoginFormAtlassianAcc(user, pwd);
     pause(10000);
 
   }

@@ -12,7 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 public class ApplicationManager  {
   Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
@@ -21,8 +23,12 @@ public class ApplicationManager  {
   SessionHelper session;
   HeaderHelper header;
    WebDriver wd;
+  Properties properties;
 
-  public void init() {
+
+
+
+  public void init() throws IOException, InterruptedException {
     String browser =
             System.getProperty("browser", BrowserType.CHROME);
     if(browser.equals(BrowserType.CHROME)){
@@ -34,17 +40,22 @@ public class ApplicationManager  {
       if(browser.equals(BrowserType.EDGE)){
       wd = new EdgeDriver();
     }
+    properties = new Properties();
+    String target = System.getProperty("target","local");
+    properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     openSite();
+
 
     board = new BoardHelper(wd);
     team = new TeamHelper(wd);
     session = new SessionHelper(wd);
     header = new HeaderHelper(wd);
+    session.loginAtlassianAcc(properties.getProperty("web.user"), properties.getProperty("web.pwd"));
   }
 
   public void openSite() {
-    wd.get("https://trello.com/");
+    wd.get(properties.getProperty("web.baseURL"));
   }
 
   public void stop() {

@@ -9,7 +9,7 @@ public class ChangeUserAvatar extends TestBase {
   public void preconditions() throws InterruptedException {
     if (!app.getSession().isAvatarPresentOnHeader()) {
 		
-      app.getSession().loginAtlassianAcc();
+      app.getSession().loginAtlassianAcc("rochman.elena@gmail.com", "12345.com");
     }
   }
   @Test

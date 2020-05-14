@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -25,7 +26,7 @@ public void stopTestLog(Method m){
   logger.info("Stop test " + m.getName());
 }
   @BeforeSuite
-  public void setUp(){
+  public void setUp() throws IOException, InterruptedException {
     app.init();
   }
 

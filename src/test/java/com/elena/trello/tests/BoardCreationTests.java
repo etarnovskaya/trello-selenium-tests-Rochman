@@ -10,22 +10,22 @@ public class BoardCreationTests extends TestBase {
   @BeforeMethod
   public void preconditions() throws InterruptedException {
     if (!app.getSession().isAvatarPresentOnHeader()) {
-      app.getSession().loginAtlassianAcc();
+      app.getSession().loginAtlassianAcc("rochman.elena@gmail.com", "12345.com");
     }
   }
 
-//  @Test(enabled = false, dataProvider = "validBoards", dataProviderClass = DataProviders.class)
-//  public void testBoardCreationFromHeaderFromCSV(BoardData board) throws InterruptedException {
-//    int before = app.getBoard().getBoardsCount();
-//    app.getBoard().clickOnPlusButton();
-//    app.getBoard().selectCreateBoardFromDropDown();
-//    app.getBoard().fillBoardForm(board);
-//    app.getBoard().confirmBoardCreation();
-//    app.getBoard().pause(15000);
-//    app.getHeader().returnToHomePage();
-//    int after = app.getBoard().getBoardsCount();
-//    Assert.assertEquals(after, before+1);
-//  }
+  @Test(dataProvider = "validBoards", dataProviderClass = DataProviders.class)
+  public void testBoardCreationFromHeaderFromCSV(BoardData board) throws InterruptedException {
+    int before = app.getBoard().getBoardsCount();
+    app.getBoard().clickOnPlusButton();
+    app.getBoard().selectCreateBoardFromDropDown();
+    app.getBoard().fillBoardForm(board);
+    app.getBoard().confirmBoardCreation();
+    app.getBoard().pause(15000);
+    app.getHeader().returnToHomePage();
+    int after = app.getBoard().getBoardsCount();
+    Assert.assertEquals(after, before+1);
+  }
 
   @Test
   public void testBoardCreationFromHeader() throws InterruptedException {

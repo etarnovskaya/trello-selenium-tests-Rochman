@@ -1,6 +1,5 @@
 package com.elena.trello.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -8,7 +7,7 @@ public class TeamDeletionTests extends  TestBase {
   @BeforeMethod
   public void preconditions() throws InterruptedException {
     if(!app.getSession().isAvatarPresentOnHeader()){
-      app.getSession().loginAtlassianAcc();
+      app.getSession().loginAtlassianAcc("rochman.elena@gmail.com", "12345.com");
     }
   }
   @Test
